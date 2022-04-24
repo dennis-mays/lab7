@@ -1,8 +1,9 @@
 const animalUrl = "https://zoo-animal-api.herokuapp.com/animals/rand";
 const dictionaryUrl = "https://api.dictionaryapi.dev/api/v2/entries/en/";
+// let animalType = "";
 
 function getAnimal() {
-    fetch("testdata.json")
+    fetch(animalUrl)
         .then((response) => {
             return response.json();
         })
@@ -17,14 +18,16 @@ function getAnimal() {
             document.querySelector("#habitat").innerHTML = data.habitat;
             document.querySelector("#geoarea").innerHTML = data.geo_range;
             document.querySelector("#image").src = data.image_link;
+            // animalType = data.animal_type;
+            getDefinition(data.animal_type);
         })
         .catch((err) => {
             console.error(err);
         });
 }
 
-function getDefinition() {
-    fetch("testdef.json")
+function getDefinition(animalType) {
+    fetch(dictionaryUrl + animalType)
         .then((response) => {
             return response.json();
         })
@@ -39,23 +42,4 @@ function getDefinition() {
         });
 }
 
-function getImages() {
-    fetch("testimg.json")
-        .then((response) => {
-            return response.json();
-        })
-        .then((data) => {
-            let length = data.results.length;
-            let i1 = Math.floor(Math.random() * length) + 1;
-            let i2 = 0;
-            do {
-                i2 = Math.floor(Math.random() * length) + 1;
-            } while (i1 == i2);
-            document.querySelector("#pic1").src = data.results[i1];
-            document.querySelector("#pic2").src = data.results[i2];
-        });
-}
-
 getAnimal();
-getDefinition();
-getImages();
