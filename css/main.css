@@ -55,4 +55,44 @@ img {
     margin: auto;
     padding-bottom: 1rem;
     max-width: 350px;
+    position: relative;
+    float: left;
+}
+
+#image {
+    float: none;
+}
+
+.col2imgs {
+    position: absolute;
+    bottom: 0;
+    margin-left: 2rem;
+}
+
+.column {
+    float: left;
+    max-width: 350px;
+    margin: 1rem;
+    position: absolute;
+    bottom: 0;
+}
+
+.col2pic {
+    padding: 1rem;
+}
+
+p {
+    padding: 1rem;
+    font-size: 1.4rem;
+}
+
+h2 {
+    padding: 1rem 1rem 0 1rem;
+    font-size: 2rem;
+}
+
+#partOfSpeach {
+    padding: 0 1rem 0 1rem;
+    font-size: 1.2rem;
+    font-style: italic;
 }
