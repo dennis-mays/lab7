@@ -1,6 +1,5 @@
 const animalUrl = "https://zoo-animal-api.herokuapp.com/animals/rand";
 const dictionaryUrl = "https://api.dictionaryapi.dev/api/v2/entries/en/";
-// let animalType = "";
 
 function getAnimal() {
     fetch(animalUrl)
@@ -18,7 +17,6 @@ function getAnimal() {
             document.querySelector("#habitat").innerHTML = data.habitat;
             document.querySelector("#geoarea").innerHTML = data.geo_range;
             document.querySelector("#image").src = data.image_link;
-            // animalType = data.animal_type;
             getDefinition(data.animal_type);
         })
         .catch((err) => {
